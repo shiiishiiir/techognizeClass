@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
 
-class ListViewTiless extends StatelessWidget {
+class ListViewTiless extends StatefulWidget {
   const ListViewTiless({Key? key}) : super(key: key);
+
+  @override
+  State<ListViewTiless> createState() => _ListViewTilessState();
+}
+
+class _ListViewTilessState extends State<ListViewTiless> {
+
+  List<String> names = [ "Shishir", "Abir", "Izazul","Mahidul", "jamiul", "Ehsan","Shishir", "Abir", "Izazul","Mahidul", "jamiul", "Ehsan","Shishir", "Abir", "Izazul","Mahidul", "jamiul", "Ehsan"];
 
   @override
   Widget build(BuildContext context) {
@@ -10,45 +18,19 @@ class ListViewTiless extends StatelessWidget {
         appBar: AppBar(
           title: Text("List View and List Tiles"),
         ),
-        body: ListView(
-          children: <Widget>[
-            ListTile(
-              title: Text("Techognize Training"),
-              subtitle: Text("A fresh flutter course for beginers"),
-              leading: Icon(Icons.people_alt_sharp),
-              trailing: IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.camera),
+        body: ListView.builder(
+          itemCount: names.length,
+          itemBuilder: (BuildContext context , int index ){
+            return Container(
+              child: Column(
+                children:<Widget>[
+                  ListTile(
+                    title: Text(names[index]),
+                  ),
+                ],
               ),
-            ),
-            ListTile(
-              title: Text("Techognize Training"),
-              subtitle: Text("A fresh flutter course for beginers"),
-              leading: Icon(Icons.people_alt_sharp),
-              trailing: IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.camera),
-              ),
-            ),
-            ListTile(
-              title: Text("Techognize Training"),
-              subtitle: Text("A fresh flutter course for beginers"),
-              leading: Icon(Icons.people_alt_sharp),
-              trailing: IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.camera),
-              ),
-            ),
-            ListTile(
-              title: Text("Techognize Training"),
-              subtitle: Text("A fresh flutter course for beginers"),
-              leading: Icon(Icons.people_alt_sharp),
-              trailing: IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.camera),
-              ),
-            ),
-          ],
+            );
+          },
         ),
       ),
     );
