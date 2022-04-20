@@ -16,17 +16,27 @@ class MyTabBarr extends StatelessWidget {
         child: Scaffold(
           appBar: AppBar(
             title: Text("Tab Bars"),
-            bottom: TabBar(tabs:<Tab>[
-              Tab(icon: Icon(Icons.list),),
-              Tab(icon: Icon(Icons.grid_view),),
-              Tab(icon: Icon(Icons.android),),
-            ],),
+            bottom: TabBar(
+              tabs: <Tab>[
+                Tab(
+                  icon: Icon(Icons.list),
+                ),
+                Tab(
+                  icon: Icon(Icons.grid_view),
+                ),
+                Tab(
+                  icon: Icon(Icons.android),
+                ),
+              ],
+            ),
           ),
-          body: TabBarView(children: [
-            ListViewTiless(),
-            MyGridVieww(),
-            MyExpanded(),
-          ],),
+          body: TabBarView(
+            children: [
+              ListViewTiless(),
+              MyGridVieww(),
+              MyExpanded(),
+            ],
+          ),
         ),
       ),
     );

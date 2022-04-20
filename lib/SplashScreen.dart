@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:techognize/widgetss/MyTabBar.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -80,6 +81,9 @@ class _SplashScreenState extends State<SplashScreen> {
                 child: LinearProgressIndicator(
                   color: Colors.black54,
                 ),
+              ),
+              SpinKitHourGlass(
+                color: Colors.white,
               ),
             ],
           ),
