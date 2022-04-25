@@ -20,7 +20,6 @@ class _MyBottomBarrState extends State<MyBottomBarr> {
     MyStackPosition(),
     MyLiquidSwipe(),
   ];
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(

@@ -36,6 +36,13 @@ dependencies:
   cupertino_icons: ^1.0.2
   liquid_swipe: ^2.1.1
   flutter_spinkit: ^5.1.0
+#  flutter_launcher_name: ^0.0.1
+  expandable_widgets: ^1.0.3+1
+
+
+#flutter_launcher_name:
+#  name: "NameChanger"
+
 
 
 

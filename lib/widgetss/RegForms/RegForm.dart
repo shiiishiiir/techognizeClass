@@ -8,7 +8,7 @@ class ReGForm extends StatefulWidget {
 }
 
 class _ReGFormState extends State<ReGForm> {
-  final _value = 0;
+  int _value = 1;
   @override
   Widget build(BuildContext context) {
     return SafeArea(

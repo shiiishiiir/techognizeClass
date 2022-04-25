@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class ListTilesDataPassing extends StatefulWidget {
-
   var useLists;
   ListTilesDataPassing({required this.useLists});
 
@@ -10,8 +9,6 @@ class ListTilesDataPassing extends StatefulWidget {
 }
 
 class _ListTilesDataPassingState extends State<ListTilesDataPassing> {
-
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -22,7 +19,14 @@ class _ListTilesDataPassingState extends State<ListTilesDataPassing> {
         body: Center(
           child: Column(
             children: [
-              Text("Hi I am ${widget.useLists}",style: TextStyle(fontSize: 50),),
+              Text(
+                "Hi I am ${widget.useLists["name"]}",
+                style: TextStyle(fontSize: 50),
+              ),
+              Text(
+                "and my phone number is : ${widget.useLists["phone"]}",
+                style: TextStyle(fontSize: 30),
+              ),
             ],
           ),
         ),
