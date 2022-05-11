@@ -22,6 +22,7 @@ class _ContactListJsonState extends State<ContactListJson> {
     setState(() {
       readyData = jsonDecode(jsonText);
     });
+    this.unfilterData = readyData;
 
     return "Succesfully Got Data";
   }

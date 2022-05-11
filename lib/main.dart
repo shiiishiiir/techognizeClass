@@ -4,6 +4,7 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:techognize/APIs/WeatherApi.dart';
 import 'package:techognize/Homepage.dart';
 import 'package:techognize/SplashScreen.dart';
 import 'package:techognize/widgetss/ContactListJson/ContactListEtc.dart';
@@ -34,7 +35,7 @@ class Shishir extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Page1(),
+      home: WeatherAPICall(),
     );
   }
 }
