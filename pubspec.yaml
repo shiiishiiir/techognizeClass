@@ -40,6 +40,15 @@ dependencies:
   expandable_widgets: ^1.0.3+1
   http: ^0.13.4
   font_awesome_flutter: ^10.1.0
+  carousel_slider: ^4.1.1
+  getwidget: ^2.0.5
+  firebase_database: ^9.0.14
+  firebase_core: ^1.17.0
+  firebase_auth: ^3.3.18
+  geocoding: ^2.0.4
+  geolocator: ^8.2.1
+  fluttertoast: ^8.0.9
+  url_launcher: ^6.1.2
 
 
 #flutter_launcher_name:

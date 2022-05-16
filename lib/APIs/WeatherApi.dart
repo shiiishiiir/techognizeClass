@@ -15,6 +15,20 @@ class WeatherAPICall extends StatefulWidget {
 class _WeatherAPICallState extends State<WeatherAPICall> {
   var cityname, maintemp, min, max, pressure, sunrise, sunset;
 
+  Future sunRiseSet() async {
+    final RiseSetAPI= await http.get(Uri.parse("https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400"));
+    var sunData = jsonDecode(RiseSetAPI.body);
+
+    setState(() {
+
+      this.sunrise = sunData["results"]["sunrise"];
+      this.sunset = sunData["results"]["sunset"];
+    });
+  }
+
+
+
+
   Future getWeather() async {
     final response = await http.get(Uri.parse(
         "https://api.openweathermap.org/data/2.5/weather?q=dhaka&units=metric&appid=31a1aa0c753b5b3f511601169347af60"));
@@ -26,8 +40,6 @@ class _WeatherAPICallState extends State<WeatherAPICall> {
       this.min = showData["main"]["temp_min"];
       this.max = showData["main"]["temp_max"];
       this.pressure = showData["main"]["pressure"];
-      this.sunrise = showData["sys"]["sunrise"];
-      this.sunset = showData["sys"]["sunset"];
     });
   }
 

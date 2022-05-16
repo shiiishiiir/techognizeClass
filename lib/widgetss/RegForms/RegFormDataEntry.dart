@@ -1,3 +1,4 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -19,6 +20,30 @@ class _RegFormDataEntryyState extends State<RegFormDataEntryy> {
   var emailController = TextEditingController();
   var phoneController = TextEditingController();
   var passwordController = TextEditingController();
+
+  final firebaseRef = FirebaseDatabase.instance.ref("Registered Users");
+
+  _sendFirebase() {
+    if (_formKey.currentState!.validate()) {
+      firebaseRef.push().set({
+        "Name": nameController.text,
+        "Email": emailController.text,
+        "Phone": phoneController.text,
+        "Password": passwordController.text,
+      }).then((value) {
+        Scaffold.of(context)
+            .showSnackBar(SnackBar(content: Text("Successfully Registered")));
+
+        nameController.clear();
+        emailController.clear();
+        phoneController.clear();
+        passwordController.clear();
+      }).catchError((onError) {
+        Scaffold.of(context)
+            .showSnackBar(SnackBar(content: Text("reg Failded")));
+      });
+    }
+  }
 
   _handleSignUpData() {
     if (_formKey.currentState!.validate()) {
@@ -61,8 +86,8 @@ class _RegFormDataEntryyState extends State<RegFormDataEntryy> {
                                 return ("Please Enter Your Name First!!");
                               }
                             },
-                            onSaved: (value){
-                              this.name=value;
+                            onSaved: (value) {
+                              this.name = value;
                             },
                           ),
                           SizedBox(
@@ -80,8 +105,8 @@ class _RegFormDataEntryyState extends State<RegFormDataEntryy> {
                                 return ("Please Enter Your Email First!!");
                               }
                             },
-                            onSaved: (value){
-                              this.email=value;
+                            onSaved: (value) {
+                              this.email = value;
                             },
                           ),
                           SizedBox(
@@ -99,8 +124,8 @@ class _RegFormDataEntryyState extends State<RegFormDataEntryy> {
                                 return ("Please Enter Your Number First!!");
                               }
                             },
-                            onSaved: (value){
-                              this.phone=value;
+                            onSaved: (value) {
+                              this.phone = value;
                             },
                           ),
                           SizedBox(
@@ -131,8 +156,8 @@ class _RegFormDataEntryyState extends State<RegFormDataEntryy> {
                                 return ("Please Enter Your Password First!!");
                               }
                             },
-                            onSaved: (value){
-                              this.password=value;
+                            onSaved: (value) {
+                              this.password = value;
                             },
                           ),
                         ],
@@ -143,7 +168,7 @@ class _RegFormDataEntryyState extends State<RegFormDataEntryy> {
                 ElevatedButton(
                     child: Text("Submit Here"),
                     onPressed: () {
-                      _handleSignUpData();
+                      _sendFirebase();
                     }),
               ],
             ),
