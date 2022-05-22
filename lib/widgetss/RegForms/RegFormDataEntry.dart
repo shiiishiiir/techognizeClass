@@ -31,7 +31,7 @@ class _RegFormDataEntryyState extends State<RegFormDataEntryy> {
         "Phone": phoneController.text,
         "Password": passwordController.text,
       }).then((value) {
-        Scaffold.of(context)
+        ScaffoldMessenger.of(context)
             .showSnackBar(SnackBar(content: Text("Successfully Registered")));
 
         nameController.clear();
@@ -39,7 +39,7 @@ class _RegFormDataEntryyState extends State<RegFormDataEntryy> {
         phoneController.clear();
         passwordController.clear();
       }).catchError((onError) {
-        Scaffold.of(context)
+        ScaffoldMessenger.of(context)
             .showSnackBar(SnackBar(content: Text("reg Failded")));
       });
     }

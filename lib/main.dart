@@ -26,10 +26,13 @@ import 'package:techognize/widgetss/Pages/PageOne.dart';
 import 'package:techognize/widgetss/RegForms/RegForm.dart';
 import 'package:techognize/widgetss/RegForms/RegFormDataEntry.dart';
 import 'package:techognize/widgetss/SliverAppBarr.dart';
+import 'firebase_options.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const Shishir());
 }
 

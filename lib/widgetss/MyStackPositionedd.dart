@@ -13,8 +13,7 @@ class MyStackPosition extends StatelessWidget {
         floatingActionButton: FloatingActionButton(onPressed: (){}, child: Icon(Icons.add),),
         body: Center(
           child: Stack(
-            // clipBehavior: Clip.none,
-            overflow: Overflow.visible,
+            clipBehavior: Clip.none,
             alignment: Alignment.bottomCenter,
             children:<Widget>[
               Container(

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "852203558554",
+    "firebase_url": "https://techognize-batch-2201-default-rtdb.firebaseio.com",
+    "project_id": "techognize-batch-2201",
+    "storage_bucket": "techognize-batch-2201.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:852203558554:android:6c93634fba8107b750f123",
+        "android_client_info": {
+          "package_name": "com.shishir.techognize"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "852203558554-9gmvn8ltqho6ls8sfc5mvck7nb0ntmie.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoeZywmzfMSi-5rokK1iibYvfJKCMXl_w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "852203558554-9gmvn8ltqho6ls8sfc5mvck7nb0ntmie.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
