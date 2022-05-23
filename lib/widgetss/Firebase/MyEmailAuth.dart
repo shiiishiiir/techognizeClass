@@ -1,24 +1,22 @@
-import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
+import 'package:flutter/material.dart';
 import 'package:techognize/widgetss/Firebase/AuthShowData.dart';
-import '../../Providers/Providers.dart';
 
-class EmailAuthTest extends StatefulWidget {
-  const EmailAuthTest({Key? key}) : super(key: key);
+class FireEmailAuth extends StatefulWidget {
+  const FireEmailAuth({Key? key}) : super(key: key);
 
   @override
-  State<EmailAuthTest> createState() => _EmailAuthTestState();
+  State<FireEmailAuth> createState() => _FireEmailAuthState();
 }
 
-class _EmailAuthTestState extends State<EmailAuthTest> {
+class _FireEmailAuthState extends State<FireEmailAuth> {
   final _formKey = GlobalKey<FormState>();
 
   bool isLogIn = false;
 
+  String username = "";
   String email = "";
   String password = "";
-  String username = "";
 
   _handleSignUpData() {
     if (_formKey.currentState!.validate()) {
@@ -30,8 +28,11 @@ class _EmailAuthTestState extends State<EmailAuthTest> {
 
   signUp(String email, String password) async {
     try {
-      UserCredential userCredential = await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(email: email, password: password);
+      UserCredential userCredential =
+          await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
       print("Success");
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text("Success")));
@@ -48,11 +49,14 @@ class _EmailAuthTestState extends State<EmailAuthTest> {
 
   signIn(String email, String password) async {
     try {
-      UserCredential userCredential = await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: email, password: password);
+      UserCredential userCredential =
+          await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
       print("Success");
       ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text("Welcome...")));
+          .showSnackBar(SnackBar(content: Text("Success")));
       Navigator.of(context)
           .push(MaterialPageRoute(builder: (context) => AuthShowDataFire()));
     } on FirebaseAuthException catch (e) {
@@ -67,60 +71,25 @@ class _EmailAuthTestState extends State<EmailAuthTest> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Email/Pass Auth"),
-        centerTitle: true,
-      ),
-      body: SingleChildScrollView(
+      appBar: AppBar(title: Text("Email Auth")),
+      body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
-              child: Stack(
-                children: <Widget>[
-                  Opacity(
-                    opacity: 0.5,
-                    child: ClipPath(
-                      clipper: WaveClipperTwo(),
-                      child: Container(
-                        color: Colors.redAccent,
-                        height: 200,
-                      ),
-                    ),
-                  ),
-                  ClipPath(
-                    clipper: WaveClipperTwo(),
-                    child: Container(
-                      color: Colors.red,
-                      height: 180,
-                      alignment: Alignment.center,
-                      child: Text(
-                        "Hey Hi!",
-                        style: TextStyle(
-                            fontSize: 30,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              padding: const EdgeInsets.all(15.0),
+              padding: EdgeInsets.all(15.0),
               child: Form(
                 key: _formKey,
                 child: Column(
                   children: <Widget>[
                     isLogIn
                         ? TextFormField(
-                            key: ValueKey("Username"),
                             decoration: InputDecoration(
                               hintText: "Enter Your Username",
                             ),
                             validator: (value) {
                               if (value.toString().length < 3) {
-                                return "Username is Small";
+                                return "Username is Samll";
                               } else {
                                 return null;
                               }
@@ -132,33 +101,37 @@ class _EmailAuthTestState extends State<EmailAuthTest> {
                             },
                           )
                         : Container(),
+                    SizedBox(
+                      height: 10,
+                    ),
                     TextFormField(
-                      key: ValueKey("Email"),
                       decoration: InputDecoration(
                         hintText: "Enter Your Email",
                       ),
-                      validator: (value) {
-                        if (!(value.toString().contains("@"))) {
-                          return "Invalid Email";
-                        } else {
-                          return null;
-                        }
-                      },
+                      // validator: (value) {
+                      //   if (value.toString().contains("@")) {
+                      //     return "Invalid Email";
+                      //   } else {
+                      //     return null;
+                      //   }
+                      // },
                       onSaved: (value) {
                         setState(() {
                           email = value!;
                         });
                       },
                     ),
+                    SizedBox(
+                      height: 10,
+                    ),
                     TextFormField(
                       obscureText: true,
-                      key: ValueKey("Password"),
                       decoration: InputDecoration(
                         hintText: "Enter Your Password",
                       ),
                       validator: (value) {
                         if (value.toString().length < 6) {
-                          return "Password is Small";
+                          return "Password is Samll";
                         } else {
                           return null;
                         }
@@ -169,19 +142,12 @@ class _EmailAuthTestState extends State<EmailAuthTest> {
                         });
                       },
                     ),
-                    SizedBox(
-                      height: 10,
-                    ),
                     Container(
                       width: double.infinity,
-                      height: 50,
                       child: ElevatedButton(
                         onPressed: _handleSignUpData,
                         child: isLogIn ? Text("Sign Up") : Text("Log In"),
                       ),
-                    ),
-                    SizedBox(
-                      height: 10,
                     ),
                     TextButton(
                       onPressed: () {
@@ -190,8 +156,8 @@ class _EmailAuthTestState extends State<EmailAuthTest> {
                         });
                       },
                       child: isLogIn
-                          ? Text("Already SignUp? LogIn")
-                          : Text("Don't Have an Account? SignUp"),
+                          ? Text("Already Signned Up? Log In!")
+                          : Text("Don't have an Account? SignUp!"),
                     ),
                   ],
                 ),
