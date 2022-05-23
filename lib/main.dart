@@ -23,6 +23,8 @@ import 'package:techognize/widgetss/MyStackPositionedd.dart';
 import 'package:techognize/widgetss/MyTabBar.dart';
 import 'package:techognize/widgetss/NewListVieww.dart';
 import 'package:techognize/widgetss/Pages/PageOne.dart';
+import 'package:techognize/widgetss/RegForms/EmailAuth.dart';
+import 'package:techognize/widgetss/RegForms/FireDataTest.dart';
 import 'package:techognize/widgetss/RegForms/RegForm.dart';
 import 'package:techognize/widgetss/RegForms/RegFormDataEntry.dart';
 import 'package:techognize/widgetss/SliverAppBarr.dart';
@@ -45,6 +47,7 @@ class Shishir extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      // theme: ThemeData(primarySwatch: Colors.red),
       home: RegFormDataEntryy(),
     );
   }
