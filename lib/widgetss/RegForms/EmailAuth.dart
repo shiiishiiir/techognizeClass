@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:techognize/widgetss/Firebase/AuthShowData.dart';
-import '../../Providers/Providers.dart';
 
 class EmailAuthTest extends StatefulWidget {
   const EmailAuthTest({Key? key}) : super(key: key);

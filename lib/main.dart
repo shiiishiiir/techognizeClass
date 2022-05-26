@@ -10,6 +10,7 @@ import 'package:techognize/Homepage.dart';
 import 'package:techognize/SplashScreen.dart';
 import 'package:techognize/widgetss/ContactListJson/ContactListEtc.dart';
 import 'package:techognize/widgetss/Firebase/MyEmailAuth.dart';
+import 'package:techognize/widgetss/GeoLocator.dart';
 import 'package:techognize/widgetss/GetWidgetCarousel.dart';
 import 'package:techognize/widgetss/GradiantColors.dart';
 import 'package:techognize/widgetss/ListViewTiless.dart';
@@ -49,7 +50,7 @@ class Shishir extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       // theme: ThemeData(primarySwatch: Colors.red),
-      home: FireEmailAuth(),
+      home: MyGeoLocation(),
     );
   }
 }
