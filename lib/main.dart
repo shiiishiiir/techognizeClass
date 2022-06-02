@@ -9,7 +9,10 @@ import 'package:techognize/APIs/WeatherApi.dart';
 import 'package:techognize/Homepage.dart';
 import 'package:techognize/SplashScreen.dart';
 import 'package:techognize/widgetss/ContactListJson/ContactListEtc.dart';
+import 'package:techognize/widgetss/Firebase/AuthPhone.dart';
+import 'package:techognize/widgetss/Firebase/FirePhoneVerifiedHome.dart';
 import 'package:techognize/widgetss/Firebase/MyEmailAuth.dart';
+import 'package:techognize/widgetss/Firebase/TestPhoneAuth.dart';
 import 'package:techognize/widgetss/GeoLocator.dart';
 import 'package:techognize/widgetss/GetWidgetCarousel.dart';
 import 'package:techognize/widgetss/GradiantColors.dart';
@@ -27,6 +30,7 @@ import 'package:techognize/widgetss/NewListVieww.dart';
 import 'package:techognize/widgetss/Pages/PageOne.dart';
 import 'package:techognize/widgetss/RegForms/EmailAuth.dart';
 import 'package:techognize/widgetss/RegForms/FireDataTest.dart';
+import 'package:techognize/widgetss/RegForms/MaheTest.dart';
 import 'package:techognize/widgetss/RegForms/RegForm.dart';
 import 'package:techognize/widgetss/RegForms/RegFormDataEntry.dart';
 import 'package:techognize/widgetss/SliverAppBarr.dart';
@@ -50,7 +54,7 @@ class Shishir extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       // theme: ThemeData(primarySwatch: Colors.red),
-      home: MyGeoLocation(),
+      home: FireHomeStore(),
     );
   }
 }
